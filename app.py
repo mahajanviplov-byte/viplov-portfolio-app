@@ -9,8 +9,10 @@ BASE_DIR = Path(__file__).resolve().parent
 UPLOAD_DIR = BASE_DIR / 'static' / 'uploads'
 CONTENT_FILE = BASE_DIR / 'content.json'
 
-ADMIN_ID = '9810444571'
-ADMIN_PASSWORD = 'Viplov@123'
+import os
+
+ADMIN_ID = os.environ.get("ADMIN_ID", "9810444571")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "Viplov@123")
 ALLOWED_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.webp', '.pdf'}
 
 app = Flask(__name__)
@@ -155,4 +157,5 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
