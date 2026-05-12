@@ -1,0 +1,144 @@
+{
+  "site": {
+    "name": "Viplov Mahajan",
+    "title": "Product Manager • Growth • Retention • Platform Strategy",
+    "hero_headline_html": "I turn <span class='gradient'>messy user problems</span><br />into structured product direction.",
+    "hero_copy": "Product-focused program and platform leader with experience designing loyalty, rewards, and engagement ecosystems across dealers, retailers, farmers, and influencers. I bring business depth, user-centric thinking, and strong cross-functional execution across technology, operations, finance, client stakeholders, and external vendors.",
+    "location": "New Delhi, India",
+    "phone": "+91 9810444571",
+    "linkedin": "https://www.linkedin.com/in/viplov-mahajan",
+    "profile_image": "photo.png",
+    "resume_pdf": "Viplov_Mahajan_Product_Manager_Resume.pdf",
+    "resume_preview": "resume.png"
+  },
+  "stats": [
+    {
+      "value": "100%",
+      "label": "of Indian pin codes reached through large-scale loyalty and engagement programs"
+    },
+    {
+      "value": "30%+",
+      "label": "annual sales growth contribution in a prior loyalty program role"
+    },
+    {
+      "value": "20%",
+      "label": "month-on-month user growth contribution in a prior platform role"
+    }
+  ],
+  "learning": [
+    "Pursuing AI Product Management learning through Airtribe’s Product Management Launchpad",
+    "Product thinking and prioritization",
+    "User research and UX fundamentals",
+    "Analytics and metrics",
+    "SQL / APIs / technical fluency",
+    "Go-to-market and launch thinking",
+    "AI product workflows / AI-first product mindset"
+  ],
+  "projects": [
+    {
+      "id": "zomato",
+      "type": "Growth & Retention",
+      "index": "01",
+      "title": "Improving Engagement & Retention in Zomato Food Delivery",
+      "summary": "A strategy-led case on retention in Tier-1 food delivery. I used first-principles diagnosis, behavior-led framing, metric hierarchy, and solution logic to identify where habit formation could be strengthened.",
+      "highlight": "This shows how I break a broad consumer problem into structured product thinking with a clear objective and measurable direction.",
+      "tags": [
+        "Retention",
+        "Tier-1 Users",
+        "Habit Design",
+        "Metric Thinking"
+      ],
+      "images": [
+        "zomato_cover.png",
+        "zomato_framework.png"
+      ],
+      "links": [
+        {
+          "label": "View Project PDF",
+          "file": "ET9760YJGNMHSXQY.pdf",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "vitafit",
+      "type": "PRD & Execution",
+      "index": "02",
+      "title": "VitaFit Retention & Engagement Strategy",
+      "summary": "A product strategy and execution-oriented case focused on improving user momentum in a fitness experience. The work translates retention challenges into concrete signals, nudges, and build-ready thinking.",
+      "highlight": "This reflects my comfort moving from problem framing into actionable product artifacts and execution logic.",
+      "tags": [
+        "PRD Thinking",
+        "User Signals",
+        "Behavioral Nudges",
+        "Activation"
+      ],
+      "images": [
+        "vitafit_cover.png",
+        "vitafit_signals.png"
+      ],
+      "links": [
+        {
+          "label": "View Project PDF",
+          "file": "YECPQVU7IBEYY1D5.pdf",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "nourishly",
+      "type": "0→1 Product Concept",
+      "index": "03",
+      "title": "Nourishly — Smarter Weekly Meal Planning",
+      "summary": "An Indian-first product concept focused on solving the real friction behind meal planning: decision fatigue, household complexity, and execution overload. The idea is shaped as a decision system, not just a recipe library.",
+      "highlight": "This demonstrates 0→1 thinking, sharper problem definition, and the ability to identify the true job to be done.",
+      "tags": [
+        "0→1",
+        "JTBD",
+        "Consumer Problem",
+        "Differentiation"
+      ],
+      "images": [
+        "nourishly_cover.png",
+        "nourishly_problem.png"
+      ],
+      "links": [
+        {
+          "label": "View Project PDF",
+          "file": "6LBY480TB1KPTW3E.pdf",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "whatsapp",
+      "type": "Research & Opportunity Mapping",
+      "index": "04",
+      "title": "WhatsApp-Led Local Service Discovery",
+      "summary": "A research-led exploration of how people discover local services, where trust breaks, and how WhatsApp could evolve into a more structured discovery layer without becoming a heavyweight marketplace.",
+      "highlight": "This shows my ability to synthesize research into product direction and define where a product should play in an ecosystem.",
+      "tags": [
+        "User Research",
+        "Trust",
+        "Discovery",
+        "Market Opportunity"
+      ],
+      "images": [
+        "whatsapp_summary.png",
+        "whatsapp_charts.png"
+      ],
+      "links": [
+        {
+          "label": "View Summary PDF",
+          "file": "WhatsApp_Local_Service_Discovery_Consolidated_Summary.pdf",
+          "primary": true
+        },
+        {
+          "label": "Open Research PDF",
+          "file": "Market Research and Competitor Analysis for WhatsApp-Led Local Service Discovery in India.pdf",
+          "primary": false
+        }
+      ]
+    }
+  ]
+}

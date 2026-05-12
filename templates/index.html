@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Viplov Mahajan | Product Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#FAF8F5;
+  --surface:#F2EDE6;
+  --card:#FFFFFF;
+  --card-h:#FFF7F3;
+  --border:#E4DDD5;
+  --border-s:#EDE7E0;
+  --text:#1A1410;
+  --muted:#7A7068;
+  --dim:#C0B8B0;
+  --accent:#E8622A;
+  --acc-dim:rgba(232,98,42,.09);
+  --acc-glow:rgba(232,98,42,.22);
+  --tag-bg:rgba(232,98,42,.08);
+  --tag-txt:#B84A18;
+  --sh-sm:0 1px 3px rgba(30,20,10,.07),0 1px 2px rgba(30,20,10,.04);
+  --sh-md:0 4px 16px rgba(30,20,10,.09),0 2px 6px rgba(30,20,10,.05);
+  --sh-lg:0 16px 48px rgba(30,20,10,.12),0 4px 16px rgba(30,20,10,.06);
+  --r:16px;--r-s:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
+.lbl{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+section{padding:100px 0}
+
+/* progress */
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:200;width:0%;transition:width .08s linear;box-shadow:0 0 10px var(--acc-glow)}
+
+/* nav */
+nav{position:fixed;top:3px;left:0;right:0;z-index:100;padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,248,245,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-s);box-shadow:0 1px 0 rgba(30,20,10,.04)}
+.nlogo{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;display:flex;align-items:center;gap:10px}
+.nm{width:32px;height:32px;background:var(--accent);border-radius:8px;display:grid;place-items:center;font-size:.82rem;font-weight:800;color:#fff}
+.nlinks{display:flex;gap:4px;align-items:center}
+.nlinks a{padding:7px 14px;font-size:.85rem;font-weight:500;color:var(--muted);border-radius:8px;transition:color .2s,background .2s}
+.nlinks a:hover,.nlinks a.active{color:var(--text);background:var(--surface)}
+.ncta{padding:8px 20px!important;background:var(--accent)!important;color:#fff!important;border-radius:8px!important;font-weight:600!important;transition:opacity .2s,transform .15s!important}
+.ncta:hover{opacity:.88!important;transform:translateY(-1px)!important}
+
+/* hero */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hblob{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;animation:bd 14s ease-in-out infinite alternate}
+.hb1{width:600px;height:600px;background:radial-gradient(circle,rgba(232,98,42,.10) 0%,transparent 70%);top:-15%;right:-10%;animation-duration:16s}
+.hb2{width:340px;height:340px;background:radial-gradient(circle,rgba(232,98,42,.07) 0%,transparent 70%);bottom:5%;left:-5%;animation-duration:11s;animation-delay:-6s}
+.hb3{width:200px;height:200px;background:radial-gradient(circle,rgba(200,140,80,.05) 0%,transparent 70%);top:40%;left:40%;animation-duration:18s;animation-delay:-3s}
+@keyframes bd{0%{transform:translate(0,0) scale(1)}50%{transform:translate(18px,-28px) scale(1.05)}100%{transform:translate(-12px,16px) scale(.97)}}
+.hero-in{position:relative;z-index:1}
+
+.hbadge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;background:var(--card);border:1px solid var(--border);border-radius:100px;font-size:.8rem;color:var(--muted);margin-bottom:24px;box-shadow:var(--sh-sm)}
+.bdot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pu 2.2s ease-in-out infinite}
+@keyframes pu{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+
+.hident{display:flex;align-items:center;gap:18px;margin-bottom:8px}
+.hav{width:68px;height:68px;min-width:68px;border-radius:50%;border:2.5px solid var(--accent);box-shadow:0 0 0 5px var(--acc-dim),var(--sh-md);overflow:hidden;animation:pop .65s cubic-bezier(.34,1.56,.64,1) .25s both}
+.hav img{width:100%;height:100%;object-fit:cover;object-position:top center}
+@keyframes pop{from{opacity:0;transform:scale(.55)}to{opacity:1;transform:scale(1)}}
+.hname{font-size:clamp(2.8rem,5.5vw,4.6rem);font-weight:800;color:var(--text);line-height:1.05}
+.hname .acc{color:var(--accent);position:relative;display:inline-block}
+.hname .acc::after{content:'';position:absolute;bottom:-5px;left:0;height:3px;width:100%;background:var(--accent);border-radius:2px;transform:scaleX(0);transform-origin:left;animation:sw .75s .8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes sw{to{transform:scaleX(1)}}
+.hrole{font-size:1rem;color:var(--muted);margin-bottom:20px}
+.hhl{font-family:'Syne',sans-serif;font-size:clamp(1.05rem,2vw,1.35rem);font-weight:600;color:var(--text);line-height:1.5;max-width:560px;margin-bottom:36px;min-height:3em}
+.typed{color:var(--accent)}
+.cur{display:inline-block;width:2px;height:1.05em;background:var(--accent);margin-left:2px;vertical-align:text-bottom;animation:bl .85s step-end infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+
+.hacts{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+.bp{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;border-radius:var(--r-s);border:none;cursor:pointer;transition:opacity .2s,transform .2s,box-shadow .2s}
+.bp:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 24px var(--acc-glow)}
+.bs{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:transparent;color:var(--text);font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600;border-radius:var(--r-s);border:1.5px solid var(--border);cursor:pointer;transition:border-color .2s,background .2s}
+.bs:hover{border-color:var(--accent);background:var(--acc-dim)}
+
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-md)}
+.stat{padding:20px 24px;border-right:1px solid var(--border);position:relative}
+.stat:last-child{border-right:none}
+.stn{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--accent);line-height:1;margin-bottom:6px}
+.stl{font-size:.76rem;color:var(--muted);line-height:1.45}
+
+/* section header */
+.sh{margin-bottom:56px;max-width:640px}
+.sh .lbl{margin-bottom:12px}
+.st2{font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;color:var(--text);margin-bottom:14px}
+.sd{font-size:1rem;color:var(--muted);line-height:1.7}
+.sr{width:44px;height:3px;background:var(--accent);border-radius:2px;margin-top:18px}
+
+/* about */
+#about{background:var(--surface)}
+.abg{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.ab-body p{font-size:.97rem;color:var(--muted);line-height:1.8;margin-bottom:18px}
+.ab-body p:last-child{margin-bottom:0}
+.ab-vals{display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.vrow{display:flex;gap:14px;align-items:flex-start}
+.vic{width:36px;height:36px;min-width:36px;background:var(--acc-dim);border:1.5px solid rgba(232,98,42,.2);border-radius:9px;display:grid;place-items:center;font-size:.9rem}
+.vt strong{display:block;font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;margin-bottom:2px}
+.vt span{font-size:.84rem;color:var(--muted);line-height:1.5}
+.skblk{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:30px;box-shadow:var(--sh-sm)}
+.skblk h3{font-size:1rem;font-weight:700;margin-bottom:20px;font-family:'Syne',sans-serif}
+.sg{margin-bottom:20px}
+.sg:last-child{margin-bottom:0}
+.sgl{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+.stgs{display:flex;flex-wrap:wrap;gap:7px}
+.sk{padding:5px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-size:.79rem;color:var(--text)}
+.sk.a{background:var(--tag-bg);border-color:rgba(232,98,42,.22);color:var(--tag-txt)}
+
+/* experience */
+#experience{background:var(--bg)}
+.expl{display:flex;flex-direction:column;gap:14px}
+.exi{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px 32px 28px 36px;position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s;box-shadow:var(--sh-sm)}
+.exi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--border-s);transition:background .25s,box-shadow .25s}
+.exi:hover::before{background:var(--accent);box-shadow:0 0 10px var(--acc-glow)}
+.exi:hover{border-color:rgba(232,98,42,.25);box-shadow:var(--sh-md);transform:translateX(4px)}
+.exhdr{display:flex;flex-direction:column;gap:2px;margin-bottom:0}
+.exttl{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;line-height:1.2}
+.exco{font-size:.88rem;color:var(--accent);font-weight:600;margin-top:2px}
+.exdt{font-size:.75rem;color:var(--muted);background:var(--surface);padding:3px 10px;border-radius:100px;border:1px solid var(--border);display:inline-block;margin-top:5px}
+.exdesc{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:16px;padding-top:14px;border-top:1px solid var(--border-s)}
+.exbuls{display:flex;flex-direction:column;gap:11px;margin-bottom:18px}
+.eb{display:grid;grid-template-columns:16px 1fr;gap:10px;font-size:.875rem;color:var(--muted);line-height:1.65}
+.eb::before{content:'→';color:var(--accent);font-size:.78rem;margin-top:4px;font-weight:700}
+.eb strong{color:var(--text);font-weight:600}
+.extgs{display:flex;flex-wrap:wrap;gap:6px;padding-top:4px}
+.etg{padding:4px 11px;background:var(--surface);border:1px solid var(--border);border-radius:6px;font-size:.74rem;color:var(--muted);font-weight:500}
+
+/* projects */
+#projects{background:var(--surface)}
+.prjg{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh-sm);transition:transform .3s cubic-bezier(.4,0,.2,1),box-shadow .3s,border-color .3s;will-change:transform}
+.pc:hover{box-shadow:var(--sh-lg);border-color:rgba(232,98,42,.3)}
+.pcimg{position:relative;height:200px;overflow:hidden;background:var(--surface)}
+.pcimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.pc:hover .pcimg img{transform:scale(1.05)}
+.pcnum{position:absolute;top:12px;left:12px;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--accent);background:rgba(255,255,255,.96);border:1px solid rgba(232,98,42,.18);padding:3px 10px;border-radius:100px}
+.proto-badge{position:absolute;top:12px;right:12px;display:flex;align-items:center;gap:4px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:100px;box-shadow:0 2px 8px var(--acc-glow)}
+.pcbody{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column}
+.pccat{font-size:.73rem;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+.pcttl{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;line-height:1.3;margin-bottom:10px}
+.pcdesc{font-size:.86rem;color:var(--muted);line-height:1.65;margin-bottom:14px;flex:1}
+.pcres{background:var(--acc-dim);border:1px solid rgba(232,98,42,.18);border-radius:9px;padding:10px 14px;margin-bottom:16px;display:flex;gap:8px;align-items:flex-start}
+.ri{font-size:.85rem;margin-top:1px}
+.rt{font-size:.82rem;color:#7A3018;line-height:1.5}
+.rt strong{color:var(--accent);font-weight:700}
+.pcft{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.pctgs{display:flex;flex-wrap:wrap;gap:6px}
+.pctg{padding:4px 9px;background:var(--surface);border:1px solid var(--border);border-radius:5px;font-size:.73rem;color:var(--muted)}
+.pcacts{display:flex;gap:8px;flex-wrap:wrap}
+.btn-proto{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;border-radius:7px;white-space:nowrap;transition:opacity .2s,transform .15s,box-shadow .2s;box-shadow:0 2px 8px var(--acc-glow)}
+.btn-proto:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 6px 18px var(--acc-glow)}
+.btn-pdf{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--surface);border:1.5px solid var(--border);border-radius:7px;font-size:.8rem;font-weight:600;color:var(--muted);white-space:nowrap;font-family:'Syne',sans-serif;transition:border-color .2s,color .2s,background .2s}
+.btn-pdf:hover{border-color:var(--accent);color:var(--accent);background:var(--acc-dim)}
+
+/* testimonials */
+#testimonials{background:var(--bg)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;box-shadow:var(--sh-sm);transition:border-color .2s,transform .25s,box-shadow .25s}
+.tc:hover{border-color:rgba(232,98,42,.25);transform:translateY(-3px);box-shadow:var(--sh-md)}
+.tqm{font-size:2.4rem;line-height:1;color:var(--accent);font-family:'Syne',sans-serif;font-weight:800;opacity:.35;margin-bottom:10px}
+.ttxt{font-size:.92rem;color:var(--muted);line-height:1.78;margin-bottom:22px;font-style:italic}
+.tauth{display:flex;gap:12px;align-items:center}
+.tav{width:42px;height:42px;min-width:42px;background:linear-gradient(135deg,var(--acc-dim),var(--surface));border:1px solid rgba(232,98,42,.2);border-radius:50%;display:grid;place-items:center;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;color:var(--accent)}
+.tname{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700}
+.trole{font-size:.78rem;color:var(--muted);margin-top:2px}
+
+/* why hire */
+#why-hire{background:var(--surface)}
+.whyg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px;box-shadow:var(--sh-sm);transition:border-color .2s,transform .2s,box-shadow .2s}
+.wc:hover{border-color:rgba(232,98,42,.25);transform:translateY(-2px);box-shadow:var(--sh-md)}
+.wi{font-size:1.5rem;margin-bottom:12px}
+.wc h3{font-size:.95rem;font-weight:700;margin-bottom:7px;font-family:'Syne',sans-serif}
+.wc p{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+/* resume */
+#resume{background:var(--bg)}
+.resg{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start}
+.ressigs{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.rsig{display:flex;gap:14px;align-items:flex-start;padding:15px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:10px;box-shadow:var(--sh-sm)}
+.rdot{width:8px;height:8px;min-width:8px;background:var(--accent);border-radius:50%;margin-top:5px}
+.rtxt{font-size:.88rem;color:var(--muted);line-height:1.55}
+.rtxt strong{color:var(--text);font-weight:600}
+.resprev{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;position:sticky;top:84px;box-shadow:var(--sh-md)}
+.resprev img{width:100%;display:block;opacity:.9}
+.resprevft{padding:16px 20px;border-top:1px solid var(--border);display:flex;justify-content:center}
+
+/* contact */
+#contact{background:var(--surface)}
+.ctwrap{background:var(--card);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr 380px;box-shadow:var(--sh-lg)}
+.ctleft{padding:56px}
+.cth{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;line-height:1.25;margin-bottom:18px;font-family:'Syne',sans-serif}
+.cth span{color:var(--accent)}
+.ctsub{font-size:.97rem;color:var(--muted);line-height:1.7;margin-bottom:36px;max-width:400px}
+.ctlinks{display:flex;flex-direction:column;gap:10px}
+.ctlk{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--surface);border:1.5px solid var(--border);border-radius:10px;transition:border-color .2s,background .2s;box-shadow:var(--sh-sm)}
+.ctlk:hover{border-color:var(--accent);background:var(--acc-dim)}
+.ctlic{width:36px;height:36px;background:var(--acc-dim);border-radius:8px;display:grid;place-items:center;font-size:.9rem;flex-shrink:0}
+.ctll{font-size:.75rem;color:var(--muted);margin-bottom:1px}
+.ctlv{font-weight:600;font-size:.9rem}
+.ctright{background:linear-gradient(135deg,rgba(232,98,42,.07),rgba(232,98,42,.03));border-left:1.5px solid var(--border);padding:56px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.ctq{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:600;line-height:1.6;color:var(--text);margin-bottom:10px}
+.ctattr{font-size:.8rem;color:var(--muted)}
+.ctacts{display:flex;flex-direction:column;gap:10px;margin-top:32px}
+.ctbtn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:var(--r-s);font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;border:none;transition:opacity .2s,transform .15s}
+.ctbtn:hover{opacity:.85;transform:translateY(-1px)}
+.ctbp{background:var(--accent);color:#fff}
+.ctbg{background:transparent;color:var(--text);border:1.5px solid var(--border)!important}
+.ctbg:hover{border-color:var(--accent)!important;color:var(--accent)}
+
+footer{padding:28px;border-top:1.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--dim)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .hstats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(3){border-top:1px solid var(--border)}
+  .abg,.resg{grid-template-columns:1fr;gap:40px}
+  .prjg,.tgrid{grid-template-columns:1fr}
+  .whyg{grid-template-columns:1fr 1fr}
+  .ctwrap{grid-template-columns:1fr}
+  .ctright{border-left:none;border-top:1.5px solid var(--border)}
+  .nlinks a:not(.ncta){display:none}
+}
+@media(max-width:600px){
+  section{padding:72px 0}
+  .hstats{grid-template-columns:1fr 1fr}
+  .ctleft,.ctright{padding:36px 28px}
+  .whyg{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<nav>
+  <div class="nlogo">
+    <div class="nm">VM</div>
+    Viplov Mahajan
+  </div>
+  <div class="nlinks">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact" class="ncta">Let's Talk</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hblob hb1"></div><div class="hblob hb2"></div><div class="hblob hb3"></div>
+  <div class="wrap hero-in">
+
+    <div class="hbadge">
+      <div class="bdot"></div>
+      Open to Product Manager roles &nbsp;·&nbsp; New Delhi, India
+    </div>
+
+    <div class="hident">
+      <div class="hav"><img src="https://viplov-portfolio-app.onrender.com/uploads/photo.png" alt="Viplov Mahajan"/></div>
+      <h1 class="hname">Viplov <span class="acc">Mahajan</span></h1>
+    </div>
+
+    <p class="hrole">Product Manager &nbsp;·&nbsp; Growth &nbsp;·&nbsp; Retention &nbsp;·&nbsp; Platform Strategy</p>
+
+    <p class="hhl">I turn <span class="typed" id="typed-text"></span><span class="cur"></span></p>
+
+    <div class="hacts">
+      <a href="#projects" class="bp">See My Work &nbsp;↓</a>
+      <a href="https://viplov-portfolio-app.onrender.com/uploads/Viplov_Mahajan_Product_Manager_Resume.pdf" target="_blank" class="bs">Download Resume</a>
+    </div>
+
+    <div class="hstats">
+      <div class="stat"><div class="stn" data-target="4" data-suffix="+">0</div><div class="stl">Years in loyalty &amp; platform strategy</div></div>
+      <div class="stat"><div class="stn" data-target="200" data-suffix="K+">0</div><div class="stl">Channel partners managed across B2B programmes</div></div>
+      <div class="stat"><div class="stn" data-target="89" data-suffix="%">0</div><div class="stl">Activation in 6-month programme relaunch</div></div>
+      <div class="stat"><div class="stn" data-target="30" data-suffix="%+">0</div><div class="stl">Annual sales growth contribution at Elevatoz</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="abg">
+      <div>
+        <div class="sh">
+          <p class="lbl">About Me</p>
+          <h2 class="st2">Business depth meets product thinking.</h2>
+          <div class="sr"></div>
+        </div>
+        <div class="ab-body">
+          <p>I'm a product-oriented Senior Programme Manager with 4+ years building and scaling B2B loyalty and engagement platforms across steel, cement, and FMCG for India's largest distributed networks. I own the full product lifecycle — problem discovery, user research, solution design, roadmap execution, analytics, and go-to-market.</p>
+          <p>A proven 0→1 builder with entrepreneurial experience launching and scaling ventures from scratch. I combine hands-on delivery with structured product thinking: JTBD, RICE prioritisation, AARRR funnel analysis, North Star Metrics, and cohort-based retention frameworks.</p>
+          <p>Currently sharpening PM craft through Airtribe's Product Management Launchpad, focused on AI product workflows, analytics, and modern product thinking. Seeking a Product Management role in B2B SaaS, fintech, or consumer platforms.</p>
+        </div>
+        <div class="ab-vals">
+          <div class="vrow"><div class="vic">🏗️</div><div class="vt"><strong>Business grounded</strong><span>I understand incentives, operations, stakeholders, and feasibility — not just product theory.</span></div></div>
+          <div class="vrow"><div class="vic">👤</div><div class="vt"><strong>User focused</strong><span>I look for the real friction underneath behaviour — why people drop, what builds habit, where trust breaks.</span></div></div>
+          <div class="vrow"><div class="vic">⚡</div><div class="vt"><strong>Execution ready</strong><span>Comfortable moving from strategy to scope, workflows, and measurable outcomes from day one.</span></div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="skblk">
+          <h3>Core Competencies</h3>
+          <div class="sg"><div class="sgl">Product Management</div><div class="stgs"><span class="sk a">Product Strategy</span><span class="sk a">Roadmapping</span><span class="sk">PRD Writing</span><span class="sk">MVP Scoping</span><span class="sk">0→1 Builds</span></div></div>
+          <div class="sg"><div class="sgl">Frameworks</div><div class="stgs"><span class="sk a">JTBD</span><span class="sk a">RICE Prioritisation</span><span class="sk">AARRR Funnel</span><span class="sk">North Star Metrics</span><span class="sk">OKRs</span></div></div>
+          <div class="sg"><div class="sgl">Analytics &amp; Data</div><div class="stgs"><span class="sk a">Cohort Analysis</span><span class="sk">Funnel Analysis</span><span class="sk">A/B Testing</span><span class="sk">RFM Segmentation</span><span class="sk">KPI Design</span></div></div>
+          <div class="sg"><div class="sgl">Tools</div><div class="stgs"><span class="sk">Figma</span><span class="sk">Jira</span><span class="sk">Notion</span><span class="sk">SQL (basic)</span><span class="sk">n8n</span><span class="sk">Lovable</span></div></div>
+          <div class="sg"><div class="sgl">Domain</div><div class="stgs"><span class="sk a">B2B Loyalty Platforms</span><span class="sk">Channel Engagement</span><span class="sk">Trade Marketing</span><span class="sk">Reward Systems</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">Work Experience</p>
+      <h2 class="st2">Where I've built.</h2>
+      <p class="sd">Execution-heavy roles across loyalty platforms, engagement systems, and distributed B2B networks — the foundation of my PM lens.</p>
+      <div class="sr"></div>
+    </div>
+    <div class="expl">
+
+      <!-- BIW: Senior Manager -->
+      <div class="exi reveal">
+        <div class="exhdr">
+          <div class="exttl">Senior Manager – Client Success</div>
+          <div class="exco">BI Worldwide (BIW) India</div>
+          <div class="exdt">Jul 2025 – Present</div>
+        </div>
+        <p class="exdesc">Lead client success for multiple enterprise B2B loyalty programmes across building materials and FMCG, managing channel networks of 2L+ partners with direct accountability for retention, redemption, and engagement KPIs.</p>
+        <div class="exbuls">
+          <div class="eb">Redesigned loyalty programme for one of <strong>India's top-5 cement companies</strong> — repositioned the female head of household as primary member, mapped end-to-end user journey and step-by-step use cases to reflect actual household decision-making dynamics, achieving <strong>89% activation within 6 months</strong> of relaunch.</div>
+          <div class="eb">Conceptualised and pitched a <strong>unified 3-track loyalty platform</strong> for a leading integrated steel conglomerate covering dealer, mason/contractor, and architect segments — owning market research, competitive benchmarking, programme architecture, and a 21-slide client deck.</div>
+          <div class="eb">Identified engagement drop-offs through data analysis and redesigned programme mechanics (earning velocity, reward laddering, tier upgrades) to improve participation rate and reduce churn.</div>
+          <div class="eb">Partnered with product, tech, and ops teams to translate client requirements into platform features, <strong>prioritising backlog</strong> across multiple active deployments using business impact and feasibility scoring.</div>
+        </div>
+        <div class="extgs"><span class="etg">Platform Prioritisation</span><span class="etg">Loyalty Design</span><span class="etg">User Research</span><span class="etg">Backlog Management</span><span class="etg">0→1 Pitches</span></div>
+      </div>
+
+      <!-- BIW: Account Manager -->
+      <div class="exi reveal">
+        <div class="exhdr">
+          <div class="exttl">Account Manager</div>
+          <div class="exco">BI Worldwide (BIW) India</div>
+          <div class="exdt">Dec 2023 – Jul 2025</div>
+        </div>
+        <p class="exdesc">Managed end-to-end execution of B2B loyalty programmes for multiple clients, owning enrolment, reward fulfilment, engagement campaigns, and quarterly business reviews across distributed channel networks.</p>
+        <div class="exbuls">
+          <div class="eb">Designed and launched multiple programme interventions — growth bonuses, consistency rewards, and referral mechanics — driving measurable lifts in active participant rate and reward redemption velocity.</div>
+          <div class="eb">Built programme performance dashboards tracking <strong>activation rate, redemption rate, and earning velocity</strong>; presented monthly insights to client stakeholders to inform reinvestment decisions.</div>
+          <div class="eb">Coordinated cross-functional execution across ops, tech, and fulfilment teams, <strong>reducing reward turnaround time from 25 to 21 days</strong> for key clients.</div>
+        </div>
+        <div class="extgs"><span class="etg">Programme Delivery</span><span class="etg">Dashboards</span><span class="etg">Engagement Campaigns</span><span class="etg">Cross-functional</span></div>
+      </div>
+
+      <!-- Elevatoz -->
+      <div class="exi reveal">
+        <div class="exhdr">
+          <div class="exttl">Account Manager</div>
+          <div class="exco">Elevatoz Loyalty</div>
+          <div class="exdt">Nov 2022 – Dec 2023</div>
+        </div>
+        <p class="exdesc">Managed loyalty programme delivery across B2B and B2C clients, owning relationships, implementation, and execution from launch to scale.</p>
+        <div class="exbuls">
+          <div class="eb">Diagnosed growth choke points through funnel and segment analysis; launched a regional enrolment and activation initiative — driving <strong>20% incremental user acquisition</strong> that contributed <strong>12% of client's annual sales</strong> within the same FY.</div>
+          <div class="eb">Designed market entry strategy for a client entering the influencer loyalty space — built an identification and onboarding framework that surfaced high-potential influencers across target sectors, directly driving high-value sales conversions in the entry phase.</div>
+          <div class="eb">Drove client retention through quarterly programme audits, identifying optimisation opportunities across mechanics, communication, and reward catalogue.</div>
+        </div>
+        <div class="extgs"><span class="etg">Funnel Analysis</span><span class="etg">User Acquisition</span><span class="etg">Influencer Loyalty</span><span class="etg">Client Retention</span></div>
+      </div>
+
+      <!-- Evolve Brands -->
+      <div class="exi reveal">
+        <div class="exhdr">
+          <div class="exttl">Deputy Program Manager</div>
+          <div class="exco">Evolve Brands India</div>
+          <div class="exdt">Apr 2022 – Nov 2022</div>
+        </div>
+        <p class="exdesc">Owned programme delivery and product collaboration across loyalty platform operations and go-to-market execution.</p>
+        <div class="exbuls">
+          <div class="eb">Led onboarding experience revamp for the loyalty app — identified friction points through feedback analysis and redesigned the flow to improve activation, driving a <strong>28% YOY increase in enrolment</strong>.</div>
+          <div class="eb">Launched 2 new loyalty programmes end-to-end, owning campaign setup, reward configuration, member communication workflows, and go-to-market coordination.</div>
+          <div class="eb">Collaborated with product and tech teams to identify operational bottlenecks and translate them into platform improvement requirements.</div>
+        </div>
+        <div class="extgs"><span class="etg">Onboarding UX</span><span class="etg">Go-to-Market</span><span class="etg">Programme Launch</span><span class="etg">Product Collab</span></div>
+      </div>
+
+      <!-- Mahajan Ventures -->
+      <div class="exi reveal">
+        <div class="exhdr">
+          <div class="exttl">Entrepreneur &amp; Consultant</div>
+          <div class="exco">Mahajan Ventures &amp; Independent Consulting</div>
+          <div class="exdt">2017 – 2022</div>
+        </div>
+        <p class="exdesc">Built and scaled independent ventures across services, operations, and B2B consulting — owning end-to-end P&amp;L and execution.</p>
+        <div class="exbuls">
+          <div class="eb">Managed operations, vendor relationships, and client servicing for a family-run Tours &amp; Travel business — end-to-end execution across bookings, logistics, and accounts.</div>
+          <div class="eb">Identified a market gap and conceptualised a Notary services vertical from scratch, owning licensing, client acquisition, and operations — <strong>scaling it to ₹80L in annual revenue over 3 years</strong>.</div>
+          <div class="eb">Explored entrepreneurial ventures in aquaculture and poultry, managing procurement, vendor networks, and P&amp;L independently.</div>
+        </div>
+        <div class="extgs"><span class="etg">0→1 Ventures</span><span class="etg">P&amp;L Ownership</span><span class="etg">Operations</span><span class="etg">Client Acquisition</span></div>
+      </div>
+
+      <!-- Channelplay -->
+      <div class="exi reveal">
+        <div class="exhdr">
+          <div class="exttl">Associate Program Manager</div>
+          <div class="exco">Channelplay Limited</div>
+          <div class="exdt">2016 – Aug 2017</div>
+        </div>
+        <p class="exdesc">Managed multi-city sales training operations for a leading consumer electronics brand.</p>
+        <div class="exbuls">
+          <div class="eb">Coordinated logistics, content delivery, and stakeholder communication across events in multiple cities simultaneously.</div>
+          <div class="eb">Automated event booking and entry management using <strong>Excel Macros</strong>, reducing manual effort and improving accuracy in tracking across city-level deployments.</div>
+        </div>
+        <div class="extgs"><span class="etg">Event Operations</span><span class="etg">Automation</span><span class="etg">Stakeholder Comms</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">Selected Projects</p>
+      <h2 class="st2">Where thinking becomes product.</h2>
+      <p class="sd">Each project shows the full arc — problem diagnosis, structured thinking, and real artifacts. Two come with live interactive prototypes you can explore right now.</p>
+      <div class="sr"></div>
+    </div>
+    <div class="prjg">
+
+      <div class="pc reveal">
+        <div class="pcimg">
+          <img src="https://viplov-portfolio-app.onrender.com/uploads/zomato_cover.png" alt="Zomato"/>
+          <span class="pcnum">Growth &amp; Retention · 01</span>
+        </div>
+        <div class="pcbody">
+          <div class="pccat">Consumer App · Retention Strategy</div>
+          <h3 class="pcttl">Improving Engagement &amp; Retention in Zomato Food Delivery</h3>
+          <p class="pcdesc">First-principles diagnosis of retention in Tier-1 food delivery. Broke a broad consumer problem into structured product thinking with a clear North Star, metric hierarchy, and habit-formation framework.</p>
+          <div class="pcres"><span class="ri">📈</span><div class="rt"><strong>Key finding:</strong> Identified 3 high-friction habit-formation gaps in the post-order journey, each mapped to a specific intervention with measurable success criteria.</div></div>
+          <div class="pcft">
+            <div class="pctgs"><span class="pctg">Retention</span><span class="pctg">Habit Design</span><span class="pctg">Metrics</span></div>
+            <div class="pcacts"><a class="btn-pdf" href="https://viplov-portfolio-app.onrender.com/uploads/ET9760YJGNMHSXQY.pdf" target="_blank">Case Study PDF ↗</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc reveal">
+        <div class="pcimg">
+          <img src="https://viplov-portfolio-app.onrender.com/uploads/vitafit_cover.png" alt="VitaFit"/>
+          <span class="pcnum">PRD &amp; Execution · 02</span>
+        </div>
+        <div class="pcbody">
+          <div class="pccat">Fitness App · Product Strategy</div>
+          <h3 class="pcttl">VitaFit Retention &amp; Engagement Strategy</h3>
+          <p class="pcdesc">Strategy and execution case translating fitness app retention challenges into concrete user signals, behavioural nudges, and build-ready product thinking with clear PRD artifacts.</p>
+          <div class="pcres"><span class="ri">🎯</span><div class="rt"><strong>Key output:</strong> Defined activation, engagement, and re-engagement nudge framework — projected 15–20% improvement in D30 retention.</div></div>
+          <div class="pcft">
+            <div class="pctgs"><span class="pctg">PRD</span><span class="pctg">Nudges</span><span class="pctg">Activation</span></div>
+            <div class="pcacts"><a class="btn-pdf" href="https://viplov-portfolio-app.onrender.com/uploads/YECPQVU7IBEYY1D5.pdf" target="_blank">Case Study PDF ↗</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc reveal">
+        <div class="pcimg">
+          <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6834a548-82ec-448d-9fd5-7e02c2bee728/id-preview-70c868dd--4c6f86ab-de95-4cb8-92e0-49cfa84d2891.lovable.app-1771700201522.png" alt="Nourishly"/>
+          <span class="pcnum">0→1 Concept · 03</span>
+          <span class="proto-badge">▶ Live Prototype</span>
+        </div>
+        <div class="pcbody">
+          <div class="pccat">Consumer Product · 0→1 Build</div>
+          <h3 class="pcttl">Nourishly — Smarter Weekly Meal Planning</h3>
+          <p class="pcdesc">Indian-first product concept built to reduce decision fatigue and household complexity in meal planning. Designed as a decision system — not a recipe library — and shipped as a working interactive prototype.</p>
+          <div class="pcres"><span class="ri">💡</span><div class="rt"><strong>Key insight:</strong> Reframed the core JTBD from "find a recipe" to "eliminate Sunday decision load" — unlocking a distinct product wedge vs. incumbents.</div></div>
+          <div class="pcft">
+            <div class="pctgs"><span class="pctg">JTBD</span><span class="pctg">0→1</span><span class="pctg">Differentiation</span></div>
+            <div class="pcacts">
+              <a class="btn-proto" href="https://heartful-prototype-craft.lovable.app" target="_blank">▶ &nbsp;Try Prototype</a>
+              <a class="btn-pdf" href="https://viplov-portfolio-app.onrender.com/uploads/6LBY480TB1KPTW3E.pdf" target="_blank">PDF ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc reveal">
+        <div class="pcimg">
+          <img src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bbdb0481-c522-4860-8b91-3d8f3aa444ab/id-preview-0a8fe7c3--7e35420b-efec-4700-b70a-5f9cafa84930.lovable.app-1770982302183.png" alt="WhatsApp discovery"/>
+          <span class="pcnum">Research · 04</span>
+          <span class="proto-badge">▶ Live Prototype</span>
+        </div>
+        <div class="pcbody">
+          <div class="pccat">Platform Research · Opportunity Mapping</div>
+          <h3 class="pcttl">WhatsApp-Led Local Service Discovery</h3>
+          <p class="pcdesc">Research into how people find and trust local services — and where that trust breaks. Maps how WhatsApp could evolve into a structured discovery layer, with a working prototype demonstrating the experience.</p>
+          <div class="pcres"><span class="ri">🔍</span><div class="rt"><strong>Key finding:</strong> Trust — not search or discovery — is the primary drop-off in local service adoption, with clear intervention points mapped and prototyped.</div></div>
+          <div class="pcft">
+            <div class="pctgs"><span class="pctg">User Research</span><span class="pctg">Trust</span><span class="pctg">Market Opp.</span></div>
+            <div class="pcacts">
+              <a class="btn-proto" href="https://group-handy.lovable.app" target="_blank">▶ &nbsp;Try Prototype</a>
+              <a class="btn-pdf" href="https://viplov-portfolio-app.onrender.com/uploads/WhatsApp_Local_Service_Discovery_Consolidated_Summary.pdf" target="_blank">PDF ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">What People Say</p>
+      <h2 class="st2">Social proof.</h2>
+      <div class="sr"></div>
+    </div>
+    <div class="tgrid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="tc reveal">
+        <div class="tqm">"</div>
+        <p class="ttxt">Viplov has been a great addition to BIW team. He brings in rich experience from the industry and is able to value add in conversations from an early stage. He maintains a calm and composed attitude and does not lose his cool even under tough situations.</p>
+        <div class="tauth"><div class="tav">AS</div><div><div class="tname">Anuj Sakhuja</div><div class="trole">Client Services Director · BI Worldwide</div></div></div>
+      </div>
+      <div class="tc reveal">
+        <div class="tqm">"</div>
+        <p class="ttxt">Viplov has been a strong addition to the team and has performed well across various aspects of the project. He has demonstrated consistency and reliability in managing deliverables, even though several of the initiatives proposed to the client were stalled.</p>
+        <div class="tauth"><div class="tav">RR</div><div><div class="tname">Rupak Ray</div><div class="trole">VP North · BI Worldwide</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE -->
+<section id="why-hire">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">Why Hire Me</p>
+      <h2 class="st2">More than PM theory.</h2>
+      <p class="sd">User thinking, commercial awareness, systems understanding, and the discipline to turn ambiguity into execution-ready clarity.</p>
+      <div class="sr"></div>
+    </div>
+    <div class="whyg">
+      <div class="wc reveal"><div class="wi">🏦</div><h3>Business reality</h3><p>Worked close to clients, incentives, operations, and programme economics — I think naturally in trade-offs, feasibility, and outcomes.</p></div>
+      <div class="wc reveal"><div class="wi">🧭</div><h3>User outward</h3><p>I look for the real friction underneath behaviour — why people drop, what builds habit, where trust breaks, and what makes a journey worth returning to.</p></div>
+      <div class="wc reveal"><div class="wi">⚡</div><h3>Fast on ambiguity</h3><p>I enjoy turning broad product questions into focused workflows, opportunities, metrics, and decisions teams can rally around.</p></div>
+      <div class="wc reveal"><div class="wi">🗣️</div><h3>Clear communicator</h3><p>I present strategy in a way that sharpens discussion, aligns stakeholders, and creates momentum rather than confusion.</p></div>
+      <div class="wc reveal"><div class="wi">📐</div><h3>Real range</h3><p>B2B loyalty platforms, engagement systems, research, 0→1 product concepts, and execution-heavy environments — all of them.</p></div>
+      <div class="wc reveal"><div class="wi">🎯</div><h3>Intentional PM</h3><p>This transition is deliberate. I'm building the craft, artifacts, and decision quality needed to contribute meaningfully from day one.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="wrap">
+    <div class="sh">
+      <p class="lbl">Resume</p>
+      <h2 class="st2">The snapshot.</h2>
+      <div class="sr"></div>
+    </div>
+    <div class="resg">
+      <div>
+        <p style="font-size:.97rem;color:var(--muted);line-height:1.7">A concise view of my current positioning, core skills, and product-relevant operating experience.</p>
+        <div class="ressigs">
+          <div class="rsig"><div class="rdot"></div><div class="rtxt"><strong>Platform thinking:</strong> designing workflows, earning logic, redemption journeys, and tier systems across enterprise B2B programmes.</div></div>
+          <div class="rsig"><div class="rdot"></div><div class="rtxt"><strong>User engagement depth:</strong> working across dealers, retailers, farmers, masons, architects, and influencers.</div></div>
+          <div class="rsig"><div class="rdot"></div><div class="rtxt"><strong>Cross-functional execution:</strong> partnering across tech, ops, finance, vendors, and enterprise clients.</div></div>
+          <div class="rsig"><div class="rdot"></div><div class="rtxt"><strong>Analytics-led decisions:</strong> cohort analysis, RFM segmentation, AARRR funnel, and KPI design.</div></div>
+        </div>
+        <div style="margin-top:26px"><a href="https://viplov-portfolio-app.onrender.com/uploads/Viplov_Mahajan_Product_Manager_Resume.pdf" target="_blank" class="bp">Open Resume PDF ↗</a></div>
+      </div>
+      <div class="resprev reveal">
+        <img src="https://viplov-portfolio-app.onrender.com/uploads/resume.png" alt="Resume preview"/>
+        <div class="resprevft"><a href="https://viplov-portfolio-app.onrender.com/uploads/Viplov_Mahajan_Product_Manager_Resume.pdf" target="_blank" class="btn-pdf">Download PDF ↗</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="ctwrap">
+      <div class="ctleft">
+        <h2 class="cth">Looking for a PM who can <span>think clearly and execute</span> with substance?</h2>
+        <p class="ctsub">I'm always interested in discussing product roles, exciting challenges, or just connecting with fellow product enthusiasts. Let's start a conversation.</p>
+        <div class="ctlinks">
+          <a href="tel:919810444571" class="ctlk"><div class="ctlic">📱</div><div><div class="ctll">Mobile</div><div class="ctlv">+91 98104 44571</div></div></a>
+          <a href="https://www.linkedin.com/in/viplov-mahajan" target="_blank" class="ctlk"><div class="ctlic">💼</div><div><div class="ctll">LinkedIn</div><div class="ctlv">linkedin.com/in/viplov-mahajan</div></div></a>
+        </div>
+      </div>
+      <div class="ctright">
+        <div>
+          <p class="ctq">"I bring the mindset of someone who already knows how to handle complexity, and the curiosity of someone still obsessed with building better products."</p>
+          <p class="ctattr">— Viplov Mahajan</p>
+        </div>
+        <div class="ctacts">
+          <a href="tel:919810444571" class="ctbtn ctbp">📞 &nbsp;Call Me</a>
+          <a href="https://www.linkedin.com/in/viplov-mahajan" target="_blank" class="ctbtn ctbg">💼 &nbsp;Connect on LinkedIn</a>
+          <a href="https://viplov-portfolio-app.onrender.com/uploads/Viplov_Mahajan_Product_Manager_Resume.pdf" target="_blank" class="ctbtn ctbg">📄 &nbsp;Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Viplov Mahajan · Product Manager</span>
+  <span>New Delhi, India</span>
+</footer>
+
+<script>
+/* progress bar */
+window.addEventListener('scroll',()=>{
+  const p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  document.getElementById('prog').style.width=p+'%';
+});
+
+/* active nav */
+const secs=document.querySelectorAll('section[id]');
+const nls=document.querySelectorAll('.nlinks a:not(.ncta)');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) nls.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
+  });
+},{rootMargin:'-40% 0px -55% 0px'}).observe=function(){secs.forEach(s=>this.constructor.prototype.observe.call(this,s))};
+const navIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)nls.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));});
+},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>navIO.observe(s));
+
+/* scroll reveal */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*0.09+'s';ro.observe(el);});
+
+/* counter animation */
+function countUp(el){
+  const target=+el.dataset.target,suffix=el.dataset.suffix||'';
+  const dur=1400,start=performance.now();
+  const tick=now=>{
+    const p=Math.min((now-start)/dur,1),e=1-Math.pow(1-p,3),v=Math.round(e*target);
+    el.textContent=target>=200?v+'K+':v+suffix;
+    if(p<1)requestAnimationFrame(tick);
+    else el.textContent=target>=200?'200K+':target+suffix;
+  };
+  requestAnimationFrame(tick);
+}
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.stn').forEach(countUp);e.stopImmediatePropagation=true;}});
+},{threshold:0.4}).observe(document.querySelector('.hstats'));
+
+/* typewriter */
+const phrases=['messy user problems into structured product direction.','loyalty data into retention strategy.','ambiguity into execution-ready clarity.','user friction into product opportunities.'];
+let pi=0,ci=0,del=false;
+const tel=document.getElementById('typed-text');
+function type(){
+  const ph=phrases[pi];
+  if(!del){tel.textContent=ph.slice(0,++ci);if(ci===ph.length){setTimeout(()=>{del=true;setTimeout(type,80)},2200);return;}}
+  else{tel.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;}}
+  setTimeout(type,del?42:52);
+}
+setTimeout(type,900);
+
+/* 3D card tilt */
+document.querySelectorAll('.pc').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`perspective(900px) rotateY(${x*6}deg) rotateX(${-y*4}deg) translateY(-5px)`;
+  });
+  c.addEventListener('mouseleave',()=>{c.style.transform='';});
+});
+</script>
+</body>
+</html>

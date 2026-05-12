@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Portfolio Admin</title>
+<style>
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:#08101f;color:#f6f8ff}.wrap{width:min(1180px,calc(100% - 32px));margin:28px auto 60px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}.top h1{margin:0;font-size:34px}.muted{color:#aeb8da}.grid{display:grid;gap:18px}.card{padding:22px;border-radius:22px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}label{display:block;font-size:13px;color:#d5dcf7;margin:12px 0 8px}input,textarea{width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#fff}textarea{min-height:100px}button,.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border:none;border-radius:999px;background:linear-gradient(135deg,#7c8dff,#9b72ff,#ff8dd8);color:#fff;font-weight:700;cursor:pointer}.ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}.flash{margin-bottom:12px;padding:10px 12px;border-radius:12px;background:rgba(70,231,199,.12);border:1px solid rgba(70,231,199,.28)}img.thumb{width:100%;max-height:180px;object-fit:cover;border-radius:14px;border:1px solid rgba(255,255,255,.08);margin-top:8px}.file{font-size:12px;color:#aeb8da;margin-top:6px}a{color:#9cc3ff;text-decoration:none}@media(max-width:900px){.two,.three{grid-template-columns:1fr}}
+</style></head><body>
+<div class="wrap">
+<div class="top"><div><h1>Portfolio Admin</h1><div class="muted">Update text, replace assets, and keep the public portfolio fresh.</div></div><form method="post" action="{{ url_for('logout') }}"><button class="ghost" type="submit">Logout</button></form></div>
+{% with messages = get_flashed_messages() %}{% if messages %}<div class="flash">{{ messages[0] }}</div>{% endif %}{% endwith %}
+<form method="post" enctype="multipart/form-data" class="grid">
+  <section class="card">
+    <h2>Site basics</h2>
+    <div class="two">
+      <div><label>Name</label><input name="site_name" value="{{ content.site.name }}"></div>
+      <div><label>Title</label><input name="site_title" value="{{ content.site.title }}"></div>
+      <div><label>Phone</label><input name="phone" value="{{ content.site.phone }}"></div>
+      <div><label>LinkedIn</label><input name="linkedin" value="{{ content.site.linkedin }}"></div>
+      <div><label>Location</label><input name="location" value="{{ content.site.location }}"></div>
+      <div><label>Profile image</label><input type="file" name="profile_image">{% if content.site.profile_image %}<img class="thumb" src="{{ asset_url(content.site.profile_image) }}">{% endif %}</div>
+      <div><label>Resume PDF</label><input type="file" name="resume_pdf"><div class="file">Current: {{ content.site.resume_pdf }}</div></div>
+      <div><label>Resume preview image</label><input type="file" name="resume_preview">{% if content.site.resume_preview %}<img class="thumb" src="{{ asset_url(content.site.resume_preview) }}">{% endif %}</div>
+    </div>
+    <label>Hero headline (HTML allowed for line breaks / span)</label>
+    <textarea name="hero_headline_html">{{ content.site.hero_headline_html }}</textarea>
+    <label>Hero copy</label>
+    <textarea name="hero_copy">{{ content.site.hero_copy }}</textarea>
+  </section>
+
+  <section class="card">
+    <h2>Hero stats</h2>
+    <div class="three">
+      {% for stat in content.stats %}
+      <div>
+        <label>Value</label><input name="stat_value_{{ loop.index0 }}" value="{{ stat.value }}">
+        <label>Label</label><textarea name="stat_label_{{ loop.index0 }}">{{ stat.label }}</textarea>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Current learning</h2>
+    <label>One line per item</label>
+    <textarea name="learning_raw" style="min-height:180px">{% for item in content.learning %}{{ item }}
+{% endfor %}</textarea>
+  </section>
+
+  <section class="card">
+    <h2>Projects</h2>
+    {% for project in content.projects %}
+    {% set pidx = loop.index0 %}
+    <div class="project">
+      <h3>{{ project.index }} — {{ project.title }}</h3>
+      <div class="two">
+        <div><label>Category</label><input name="project_type_{{ loop.index0 }}" value="{{ project.type }}"></div>
+        <div><label>Tags (comma separated)</label><input name="project_tags_{{ loop.index0 }}" value="{{ project.tags|join(', ') }}"></div>
+      </div>
+      <label>Title</label><input name="project_title_{{ loop.index0 }}" value="{{ project.title }}">
+      <label>Summary</label><textarea name="project_summary_{{ loop.index0 }}">{{ project.summary }}</textarea>
+      <label>Highlight</label><textarea name="project_highlight_{{ loop.index0 }}">{{ project.highlight }}</textarea>
+      <div class="two">
+        {% for image in project.images %}
+        <div>
+          <label>Replace image {{ loop.index }}</label>
+          <input type="file" name="project_{{ pidx }}_image_{{ loop.index0 }}">
+          <img class="thumb" src="{{ asset_url(image) }}">
+        </div>
+        {% endfor %}
+      </div>
+      <div class="two">
+        {% for link in project.links %}
+        <div>
+          <label>Link label {{ loop.index }}</label><input name="project_{{ pidx }}_link_label_{{ loop.index0 }}" value="{{ link.label }}">
+          <label>Replace file {{ loop.index }}</label><input type="file" name="project_{{ pidx }}_link_file_{{ loop.index0 }}">
+          <div class="file">Current: {{ link.file }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <div><button type="submit">Save Changes</button></div>
+</form>
+</div>
+</body></html>
